@@ -39,5 +39,45 @@ The selected tables for integration are as follows:
 3.	ff_titles
 4.	ff_account_titles
 
+## Data Integration Strategy Overview
+In merging Fudgemart Inc. and Fudgeflix Inc., our data integration strategy involves employing Kimball's Bus Matrix and High-Level Dimensional Modeling. The Bus Matrix acts as a guide, detailing key business processes and dimensions for incorporation into the data warehouse. It aligns organizational goals with dimensional structures for efficient data integration. Concurrently, High-Level Dimensional Modeling represents data entities, emphasizing relationships between dimensions and facts. For a deeper understanding, please take a look at the attached Excel sheets showing the Bus Matrix and Dimensional Model as valuable references, providing insights into our data integration strategy.
 
+## STAR Schema Overview
+
+The STAR schema implemented in this data warehouse centers around a central fact table, **FactReviews**, seamlessly connecting with three vital dimension tables: **DimDate, DimCustomers, and DimProducts**.
+- **FactReviews**: This table holds essential key performance indicators linked to customer reviews. It serves as the primary source for analyzing and evaluating customer feedback, providing crucial insights into product performance.
+- **DimDate**: It captures temporal information, enabling analysis based on various time granularities such as day, week, month, quarter, and year. This dimension lays the groundwork for time-related insights, supporting trend analysis and seasonal patterns.
+- **DimCustomers**: Designed to represent customer-related attributes, DimCustomers offers a comprehensive view of customer details.
+- **DimProducts**: Serving as a repository for product-related information, DimProducts facilitates in-depth analysis of product performance and categorization.
+
+  <img width="276" alt="MOLAP Screenshot - Copy" src="https://github.com/doshiharmish/Cross-Company-Insights/assets/16878994/13c01d14-a498-4fbb-8e0c-6545d2ad32aa">
+
+## Extract-Transfer-Load (ETL) Pipeline Overview
+
+To populate our data warehouse, we have implemented an ETL (Extract, Transform, Load) pipeline utilizing Microsoft SQL Server Integration Services (SSIS). The following steps outline our ETL process:
+1. **DimCustomer:**
+- Extracting data from the source to the staging table.
+- Transformations:
+    - Deriving the source column based on the data source.
+    - Combining the First Name and Last Name into the "Name" column.
+    - Replacing Null values with 'N/A'.
+- Loading the transformed data into the dimension table.
+2. **DimProduct:**
+- Extracting data from the source to the staging table.
+- Transformations:
+    - Extracting only the Year from the date for Fudgemart data.
+    - Deriving the source column based on the data source.
+    - Replacing Null values with 'N/A'.
+- Loading the transformed data into the dimension table.
+
+3. **DimDate:**
+- Extracting data without transformations and loading it directly into the dimension table.
+4. **FactReviews:**
+- Extracting data, converting product ID from number to string for Fudgemart data, and extracting Fudgeflix data as is to the staging table.
+- Transformations:
+    - Deriving the source column based on the data source.
+    - Performing lookups and deriving date keys based on dates.
+    - Performing lookups and deriving customer keys based on customer IDs.
+    - Performing lookups and deriving product keys based on product IDs.
+- Merging the transformed data and loading it into the fact table.
 
