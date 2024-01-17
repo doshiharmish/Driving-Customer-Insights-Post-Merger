@@ -87,7 +87,7 @@ To populate our data warehouse, we have implemented an ETL (Extract, Transform, 
 
 ![image](https://github.com/doshiharmish/Cross-Company-Insights/assets/16878994/b8309a3e-ffe4-4e58-acef-0c570fdb2adc)
 
-### Insights for Overall Company (Merged):
+### Insights for Overall Company (Merged)
 -  The overall customer rating for the merged company is 2.30/5.
 -  There is a notable decreasing trend in customer ratings from 2009 to 2013.
 -  The highest-rated category was Houseware from 2009 to 2012, but it became the lowest-rated category in 2013.
@@ -95,20 +95,20 @@ To populate our data warehouse, we have implemented an ETL (Extract, Transform, 
 -  The state of New York received the highest number of reviews with an average rating of 2.78.
 -  The highest-rated product is  the Blu-Ray DVD Player with an exceptional rating of 4.14.
 
-### Insights for Fudgemart:
+### Insights for Fudgemart
 -  The company's overall rating for Fudgemart is 2.49.
 -  The Clothing category receives the highest number of reviews.
 -  The state of California has the highest number of reviews for Fudgemart, totaling 451.
 -  New Jersey is the highest-rated state for Fudgemart.
   
-### Insights for FudgeFlix:
+### Insights for FudgeFlix
 -  The company's overall rating for FudgeFlix is 2.22.
 -  Movies receive the highest number of reviews for FudgeFlix.
 -  The state of New York leads in the number of reviews for FudgeFlix, with 730 reviews.
 -  Florida is the highest-rated state for FudgeFlix.
 
 
-## Recommendations:
+## Recommendations
 - Introduce new products tailored to customer choice demographics to enhance market appeal.
 - Enable cross-selling opportunities across diverse markets by leveraging customer data and implementing a unified single sign-on system.
 - Encourage customer review submissions through incentivization for valuable feedback.
@@ -119,3 +119,5 @@ To populate our data warehouse, we have implemented an ETL (Extract, Transform, 
 ## Assumptions
 - The data provided for both Fudgemart and FudgeFlix is accurate, complete, and representative of the actual customer reviews and product information.
 - Customer feedback and ratings are reliable indicators of product satisfaction and market performance.
+## Datasource
+<br> <a href = 'https://github.com/mafudge/learn-databases'> Database Link </a>
